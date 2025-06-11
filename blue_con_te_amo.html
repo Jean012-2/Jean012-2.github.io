@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Blue – Yung Kai</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes hearts {
+      from { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+    .heart {
+      width: 20px; height: 20px;
+      position: absolute;
+      background: red;
+      transform: rotate(-45deg);
+      animation: hearts 8s linear infinite;
+    }
+    .heart::before, .heart::after {
+      content: "";
+      width: 20px; height: 20px;
+      background: inherit;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: 10px; top: 0; }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00aaff; }
+      to { text-shadow: 0 0 20px #00ffea; }
+    }
+    audio {
+      margin: 20px 0;
+      width: 80%;
+    }
+    .letra {
+      font-size: 1.3em;
+      line-height: 1.6;
+      margin-top: 30px;
+      animation: rainbow 6s linear infinite;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @keyframes rainbow {
+      0%   { color: #ff4e50; }
+      20%  { color: #fc913a; }
+      40%  { color: #f9d62e; }
+      60%  { color: #3fe0d0; }
+      80%  { color: #a18cd1; }
+      100% { color: #ff4e50; }
+    }
+    .mensaje-final {
+      margin-top: 50px;
+      font-size: 1.8em;
+      color: #00ffff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>"Blue" – Yung Kai</h1>
+
+  <audio controls>
+    <source src="https://raag.fm/blue-mp3-song-1ugjf.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML.
+  </audio>
+
+  <div class="letra">
+    <p><strong>Verse 1:</strong><br>
+    Your morning eyes, I could stare like watching stars<br>
+    I could walk you by, I could hold your heart<br>
+    You're the kind of peace I never thought I'd find<br>
+    Every moment I'm with you just feels so right</p>
+
+    <p><strong>Pre-Chorus:</strong><br>
+    I don't need a reason to stay by your side<br>
+    Every whispered secret makes me feel alive</p>
+
+    <p><strong>Chorus:</strong><br>
+    I'll nap under moonlight skies with you<br>
+    I think I'll picture us, you with the waves<br>
+    The ocean's colors on your face<br>
+    I wanna breathe you in, make that feeling last<br>
+    'Cause with you, I know I've found my "Blue"</p>
+  </div>
+
+  <div class="mensaje-final">
+    💙❤️ Te amo Anahy ❤️💙<br>
+    Desde el 30/08/22, para siempre 💫
+  </div>
+
+  <script>
+    const colors = ['red','#00aaff'];
+    for (let i = 0; i < 40; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = (Math.random()*100) + 'vw';
+      heart.style.background = colors[i%2];
+      heart.style.animationDuration = (Math.random()*5 + 5)+'s';
+      heart.style.opacity = Math.random();
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
